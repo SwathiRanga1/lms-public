@@ -5,11 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+                sh 'cd webapp && npm install'
+                sh 'cd webapp && npm build'
             }
         }
         stage('Deploy') {
